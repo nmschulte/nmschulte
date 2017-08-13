@@ -1,0 +1,49 @@
+[user]
+    name = Nathan Schulte
+    email = nmschulte@gmail.com
+[core]
+    #autocrlf = input
+[alias]
+    a = add
+    aa = add .
+
+    gr = log --graph --oneline --decorate --date-order
+    gra = log --all --graph --oneline --decorate --date-order
+    grat = log --all --graph --oneline --decorate --topo-order
+
+    st = status
+
+    br = branch
+
+    co = checkout
+    cob = checkout -b
+
+    f = fetch
+    fp = fetch --prune
+    fa = fetch --all
+    fap = fetch --all --prune
+
+    d = diff
+    dd = diff develop
+    dc = diff --cached
+
+    p = push
+    pf = push --force
+    pfo = push --force origin
+    pp = pull
+
+    c = commit
+    ca = commit --amend
+    car = commit --amend --reset-author
+    can = commit --amend --no-edit
+    carn = commit --amend --reset-author --no-edit
+[color]
+    ui = true
+[merge]
+    conflictstyle = diff3
+    tool = fugitive
+[mergetool.fugitive]
+    cmd = vim -f -c "Gdiff" "$MERGED"
+    #cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[push]
+    default = current
