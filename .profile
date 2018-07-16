@@ -29,7 +29,7 @@ export PATH
 EDITOR=vim
 export EDITOR
 
-#PAGER=vimpager
+PAGER=vimpager
 PAGER=less
 export PAGER
 
@@ -41,3 +41,5 @@ set -o vi
 
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_CLI_TELEMETRY_OPTOUT
+
+eval `ssh-agent`
