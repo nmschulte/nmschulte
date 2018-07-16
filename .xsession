@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# DISABLE THE STICK, cuz of shit hardware
+#xinput disable 15
+xinput | grep 'AlpsPS/2 ALPS DualPoint Stick' | sed -n 's/.*id=\([0-9]\+\).*/\1/p' | xargs xinput disable
+
 # need these binaries ...
 export PATH="/home/nmschulte/.local/bin:$PATH"
 
