@@ -11,17 +11,20 @@
     gra = log --all --graph --oneline --decorate --date-order
     grat = log --all --graph --oneline --decorate --topo-order
 
-    st = status
+    s = status
 
-    br = branch
+    st = stash
+
+    b = branch
+    bd = branch --delete
 
     co = checkout
     cob = checkout -b
 
-    f = fetch
-    fp = fetch --prune
-    fa = fetch --all
-    fap = fetch --all --prune
+    f = fetch --verbose
+    fp = fetch --prune --verbose
+    fa = fetch --all --verbose
+    fap = fetch --all --prune --verbose
 
     d = diff
     dd = diff develop
@@ -30,6 +33,7 @@
     p = push
     pf = push --force
     pfo = push --force origin
+
     pp = pull
 
     c = commit
@@ -37,13 +41,18 @@
     car = commit --amend --reset-author
     can = commit --amend --no-edit
     carn = commit --amend --reset-author --no-edit
+    cm = commit --message
 [color]
     ui = true
-[merge]
-    conflictstyle = diff3
-    tool = fugitive
-[mergetool.fugitive]
-    cmd = vim -f -c "Gdiff" "$MERGED"
-    #cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [push]
     default = current
+[merge]
+    conflictstyle = diff3
+    #tool = fugitive
+    tool = vimdiff3
+[mergetool "fugitive"]
+    cmd = vim -f -c "Gdiff" "$MERGED"
+    #cmd = gvim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool "vimdiff3"]
+    cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+    trustExitCode = false
