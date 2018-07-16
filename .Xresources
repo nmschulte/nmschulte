@@ -1,7 +1,7 @@
 !Xft.dpi: 576
 !Xft.dpi: 288
 !Xft.dpi: 144
-Xft.dpi: 96
+!Xft.dpi: 96
 !Xft.dpi: 72
 
 !#include "src/solarized/xresources/solarized"
@@ -17,11 +17,11 @@ Xft.dpi: 96
 
 !URxvt*font: xft:monospace:pixelsize=20:antialias=true:hinting=true
 !URxvt*boldFont: xft:monospace:bold:pixelsize=20:antialias=true:hinting=true
-URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=true:hinting=auto
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=11:antialias=true:hinting=auto
-!URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=true:hinting=true:hintstyle=hintslight
-!URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=11:antialias=true:hinting=true:hintstyle=hintslight
-URxvt*letterSpace: -2
+!URxvt*font: xft:DejaVu Sans Mono:size=12:antialias=true:hinting=auto
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=12:antialias=true:hinting=auto
+URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=true:hinting=auto:hintstyle=hintslight
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=11:antialias=true:hinting=auto:hintstyle=hintslight
+!URxvt*letterSpace: -1
 
 !Xft.antialias: 1
 !Xft.antialias: true
