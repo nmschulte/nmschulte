@@ -7,6 +7,9 @@ xinput | grep 'AlpsPS/2 ALPS DualPoint Stick' | sed -n 's/.*id=\([0-9]\+\).*/\1/
 # need these binaries ...
 export PATH="/home/nmschulte/.local/bin:$PATH"
 
+# auto setup X11 Outputs
+autorandr --change --force laptop
+
 # set root window background to solid dark gray color
 xsetroot -solid "#181818"
 # set composite-friendly root window background to tiled image
