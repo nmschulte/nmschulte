@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
+# background randomizer and rotation script
+# --
+# pass a value to transition between backgrounds by fading to the background color
+# - stores a copy of the backgound at ~/.background.jpg
+# - keyword based: auto-tiling, random coloring
+# - heuristic based auto-stretch for optimal presentation
+
 colors=("#ff0000" "#7fff00" "#002f00" "#3f0000" "#9f009f" "#7f7f00" "#00007f" "#002faf" "#00af00" "#2f9fff")
 bg_color="#181818"
 cover_min_aspect=1.33
 cover_max_aspect=2.00
 fade_steps=8
-img_dir_root=/home/nmschulte/Desktop/backgrounds/
+img_dir_root=$HOME/Desktop/backgrounds/
+background_cache=$HOME/.background.jpg
 
 tileable_keyword=tileable
 colorable_keyword=colorable
@@ -24,14 +32,14 @@ color_flags="" &&
 
 if [ ! -z "$1" ]; then
     for i in $(seq 1 $fade_steps); do
-        hsetroot -center ~/.background.jpg -alpha $(($i * 32 - 1)) -solid "#181818"
+        hsetroot -center $background_cache -alpha $(($i * 32 - 1)) -solid "$bg_color"
         sleep 0.02s
     done
     for i in $(seq 1 $fade_steps); do
-        hsetroot -solid $bg_color -$morph "$img" $color_flags -alpha $((256 - $i * 32)) -solid "#181818"
+        hsetroot -solid $bg_color -$morph "$img" $color_flags -alpha $((256 - $i * 32)) -solid "$bg_color"
         sleep 0.02s
     done
 fi
 
-#echo hsetroot -solid $bg_color -$morph "$img" $color_flags -write /home/nmschulte/.background.jpg
-hsetroot -solid $bg_color -$morph "$img" $color_flags -write /home/nmschulte/.background.jpg
+#echo hsetroot -solid $bg_color -$morph "$img" $color_flags -write $background_cache
+hsetroot -solid $bg_color -$morph "$img" $color_flags -write $background_cache
