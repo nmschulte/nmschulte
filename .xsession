@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+#eval $(ssh-agent)
+
 # DISABLE THE STICK, cuz of shit hardware
 #xinput disable 15
 xinput | grep 'AlpsPS/2 ALPS DualPoint Stick' | sed -n 's/.*id=\([0-9]\+\).*/\1/p' | xargs xinput disable
@@ -18,12 +20,12 @@ background.sh
 sh -c "while true; do sleep 300.0s; background.sh 1; done" & BG_PID=$!
 
 # i3 (window manager)
-i3 & wmpid=$!
+i3 & WM_PID=$!
 #/home/nmschulte/.local/bin/i3
 #/usr/bin/i3
 
 # xedgewarp (warps the mouse at Output edges)
-xedgewarp -b -m closest -t none &
+#xedgewarp -b -m closest -t none &
 
 # Compton (compositing manager)
 #comption -bfCG --backend glx &
@@ -35,15 +37,20 @@ pasystray &
 # UDisks tray app (block device / removable storage manager)
 udiskie --tray &
 
-# KeePassX (secure secrets/credentials manager)
-keepassx &
+## KeePassX (secure secrets/credentials manager)
+#keepassx &
+# KeePassXC (secure secrets/credentials manager)
+keepassxc &
 
 # BlueZ tray app, Blueman (bluetooth manager)
 blueman-applet &
+
+# NetworkManager applet (network manager)
+nm-applet &
 
 # Pidgin (instant messenger)
 #pidgin &
 
 # and wait ...
-wait $wmpid
+wait $WM_PID
 kill $BG_PID
