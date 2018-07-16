@@ -1,5 +1,8 @@
 execute pathogen#infect()
 
+let g:vimpager = {}
+let g:less     = {}
+
 let base16colorspace=256  " Access colors present in 256 colorspace
 "let g:solarized_termtrans = 1
 
@@ -43,7 +46,9 @@ let g:airline#extensions#tabline#enabled = 1
 " set completeopt-=preview
 "let g:ycm_min_num_of_chars_for_completion = 99
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_server_python_interpreter = "python2"
+"let g:ycm_server_python_interpreter = "python2"
+
+let g:jsx_ext_required = 0
 
 if has("autocmd")
     filetype plugin indent on
