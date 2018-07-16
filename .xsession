@@ -11,13 +11,11 @@ export PATH="/home/nmschulte/.local/bin:$PATH"
 autorandr --change --force laptop
 
 # set root window background to solid dark gray color
-xsetroot -solid "#181818"
+#xsetroot -solid "#181818"
 # set composite-friendly root window background to tiled image
-#hsetroot -tile ~/Downloads/tilable-starfield-patterns-4.jpg
-
-# auto setup X11 Outputs
-autorandr.py --change --force --default laptop
-#sleep 1
+#hsetroot -solid "#181818" -full ~/Desktop/backgrounds/MeerKAT_Galactic-Centre_Low-Res.jpg
+background.sh
+sh -c "while true; do sleep 300.0s; background.sh 1; done" & BG_PID=$!
 
 # i3 (window manager)
 i3 & wmpid=$!
@@ -48,3 +46,4 @@ blueman-applet &
 
 # and wait ...
 wait $wmpid
+kill $BG_PID
